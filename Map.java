@@ -1,5 +1,6 @@
 public class Map{
-    public Route generateMap(){
+    private Route startingPosition;
+    public Map(){
         Route start = new Route("Cebu City", 0);
         Route route1 = new Route("Mingla", 14.2);
         Route route2 = new Route("San Fernando", 12.5);
@@ -42,6 +43,28 @@ public class Map{
         route51.setRightRoute(route52);
         route52.setRightRoute(routeEnd3);
 
-        return start;
+        this.startingPosition = start;
     }
+
+    public Route getStartingPosition(){
+        return startingPosition;
+    }
+
+    // public void showRoutes(Route start){
+    //     Route n = start;
+    //     System.out.print(n.getPlaceName() + " -- ");
+
+    //     if(n.getLeftRoute() == null && n.getRightRoute() == null){
+    //         return;
+    //     }
+
+    //     if(n.getLeftRoute() != null){
+    //         showRoutes(n.getLeftRoute());
+    //     }
+
+    //     if(n.getRightRoute() != null){
+    //         showRoutes(n.getRightRoute());
+    //     }
+
+    // }
 }

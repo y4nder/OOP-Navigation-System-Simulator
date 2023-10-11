@@ -12,19 +12,19 @@ public class RouteMap {
     public void startTravel(double speed){
         String traveledPath = "";
         if(start == null) return;
-        System.out.println("\n        TRAVELING...\n");
         traveledPath = findRoutes( start, "", 0.0, speed );
-        System.out.println("\n------TRAVEL SUMMARY------\n" + traveledPath);
+        System.out.println("\n\n------TRAVEL SUMMARY------\n" + traveledPath);
     }
 
     public String findRoutes(Route route, String path, double totalDistance, double speed){
-        path = route.getPlaceName();
+        path = "    " + route.getPlaceName();
         totalDistance += route.getDistance();
         
-        System.out.print(path);
+        System.out.print(path.trim());
 
         if(noRoutesAhead(route)){
-            System.out.println("\n\nYour journey ends at " + route.getPlaceName());
+            path += ("\n\nFrom: " + start.getPlaceName());
+            path += ("\nDestination: " + route.getPlaceName());
             path += String.format("\n\n- Distance: (%.1f km)", totalDistance);
             path += String.format("\n- Speed: %.1f km/h", speed);
             path += "\n- ETA: " + calculateTime(totalDistance, speed);
@@ -32,8 +32,8 @@ public class RouteMap {
         }
 
         if(crossRoadsAhead(route)){
-            System.out.println("\n\nYou arrived at " + route.getPlaceName());
-            int chosenPath = getInput("\nWhich way do you want to go?\n[1]" + route.getLeftRoute().getPlaceName() + "\n[2]" + route.getRightRoute().getPlaceName() );
+            System.out.println("\n\n2 routes found at " + route.getPlaceName());
+            int chosenPath = getInput("Choose preferred route\n[1]" + route.getLeftRoute().getPlaceName() + "\n[2]" + route.getRightRoute().getPlaceName() );
             if(chosenPath == 1){
                 return path += "\n" + findRoutes(route.getLeftRoute(), path, totalDistance, speed);
             }
@@ -43,7 +43,6 @@ public class RouteMap {
         }
 
         System.out.print(" ---> ");
-
 
         if( leftRouteIsAvailable(route) ){
             return path += "\n" + findRoutes(route.getLeftRoute(), path, totalDistance, speed);

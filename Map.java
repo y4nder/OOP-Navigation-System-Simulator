@@ -49,4 +49,22 @@ public class Map{
     public Route getStartingPosition(){
         return startingPosition;
     }
+
+    // public void showRoutes(Route start){
+    //     Route n = start;
+    //     System.out.print(n.getPlaceName() + " -- ");
+
+    //     if(n.getLeftRoute() == null && n.getRightRoute() == null){
+    //         return;
+    //     }
+
+    //     if(n.getLeftRoute() != null){
+    //         showRoutes(n.getLeftRoute());
+    //     }
+
+    //     if(n.getRightRoute() != null){
+    //         showRoutes(n.getRightRoute());
+    //     }
+
+    // }
 }

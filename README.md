@@ -44,6 +44,7 @@ ___
 # Map
 <details>
 <summary>Click to expand</summary>
+
 ## Summary
 The `Map` class represents a map with routes between different locations. It initializes the map with a starting position and sets up the paths between the locations.
 

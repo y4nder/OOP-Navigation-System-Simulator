@@ -25,7 +25,7 @@ public class RouteMap {
         if(route.getLeftRoute() == null && route.getRightRoute() == null){
             path += String.format("\n\n- Distance: (%.1f km)", totalDistance);
             path += String.format("\n- Speed: %.1f km/h", speed);
-            path += "\n" + calculateTime(totalDistance, speed);
+            path += "\n- ETA: " + calculateTime(totalDistance, speed);
             routes.add(path);
             return;
         }
@@ -41,8 +41,15 @@ public class RouteMap {
     private String calculateTime(double distance, double speed){
         String estimatedTime = "";
         double timeInHours = distance / speed;
-        int hours = (int) Math.floor(timeInHours);
-        int minutes = (int) Math.round((timeInHours - hours) * 60);
+        int seconds = (int)(timeInHours * 100);
+        int hours = seconds/100;
+        int minutes = seconds%100;
+
+        if(minutes >= 60){
+            hours++;
+            minutes = minutes - 60;
+        }
+
         estimatedTime = hours + " hr " + minutes + "min";
         return estimatedTime;
     }

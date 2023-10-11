@@ -10,8 +10,8 @@ public class Map{
         Route route412 = new Route(" - Alcantara", 10.8);
         Route routeEnd1 = new Route("Moalboal", 2.1);
         
-        Route route42 = new Route(" - Sibonga", 12.5);
-        Route route421 = new Route(" - Dumanjug", 32.2);
+        Route route42 = new Route(" - Sibonga", 14.2);
+        Route route421 = new Route(" - Dumanjug", 32.1);
         Route route422 = new Route(" - Alcantara", 10.8);
         Route routeEnd2 = new Route("Moalboal", 2.1);
 

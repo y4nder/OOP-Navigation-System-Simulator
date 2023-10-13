@@ -68,8 +68,11 @@ public class RouteMap {
     //helper methods
     private int getInput(String instructions){
         int choice;
-        System.out.println(instructions);
-        choice = scan.nextInt();
+        do{
+            System.out.println(instructions);
+            choice = scan.nextInt();
+        }
+        while(choice < 1 || choice > 2);
         return choice;
     }
 
